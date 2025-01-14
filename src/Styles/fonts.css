@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Magistral";
+  src: url("../../fonts/Magistral-Regular.otf") format("truetype"); 
+}
+
+@font-face {
+  font-family: "MagistralBold";
+  src: url("../../fonts/Magistral-Bold.otf") format("truetype"); 
+}
+
+
+@font-face {
+  font-family: "PoppinsMedium";
+  src: url("../../fonts/Poppins-Medium.ttf") format("truetype"); 
+}
+
+@font-face {
+  font-family: "PoppinsRegular";
+  src: url("../../fonts/Poppins-Regular.ttf") format("truetype"); 
+}

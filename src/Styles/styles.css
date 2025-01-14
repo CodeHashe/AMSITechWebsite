@@ -1,0 +1,416 @@
+@import './fonts.css';
+
+body,
+input,
+textarea,
+button,
+a {
+  cursor: none;
+}
+
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align everything */
+  padding: 20px; /* Add some spacing */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+}
+
+
+.homePagebutton {
+  background-color: #163B6D; /* Set background color */
+  font-family: 'PoppinsRegular', sans-serif;
+  color: white; /* White text */
+  width: 262px; /* Fixed button width */
+  height: 60px; /* Fixed button height */
+  border-radius: 46px; /* Rounded edges */
+  border: 1px solid black; /* Border color and width */
+  font-size: 24px; /* Font size */
+  text-transform: uppercase; /* Uppercase text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* Pointer cursor */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.homePagebutton:hover {
+  background-color: #13508f; /* Slightly lighter on hover */
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.pgscontainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+  position: relative; /* Allow absolute positioning of the arrow at the bottom */
+  justify-content: flex-start; /* Align items from the top */
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in effect for heading, paragraph, and buttons */
+/* Keyframes for fade-in effect */
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Move up */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* General fade-in for heading, text, and buttons */
+.fade-in,
+.button-fade-in {
+  opacity: 0; /* Initially hidden */
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Apply consistent delay to all elements */
+.fade-in,
+.button-fade-in {
+  animation-delay: 0.2s; /* Consistent delay */
+}
+
+@keyframes fadeInContainer {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Move the container slightly down */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Bring it back to its original position */
+  }
+}
+
+.button-container {
+  opacity: 0; /* Initially hidden */
+  animation: fadeInContainer 1s ease-out forwards;
+  animation-delay: 0.2s; /* Slight delay for synchronization */
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px; /* Adjust size */
+  height: 20px;
+  background-color: rgba(22, 59, 109, 0.8); /* Blue tint */
+  border-radius: 50%; /* Make it a circle */
+  pointer-events: none; /* Prevent it from blocking clicks */
+  transform: translate(-50%, -50%); /* Center the cursor on the mouse position */
+  z-index: 9999; /* Ensure it stays above all other elements */
+  transition: transform 0.1s ease-out; /* Smooth movement */
+}
+
+a:hover ~ .custom-cursor {
+  background-color: rgba(22, 59, 109, 1); /* Stronger blue tint */
+  transform: translate(-50%, -50%) scale(1.5); /* Enlarge the cursor */
+}
+
+.cursor-trail {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(19, 80, 143, 0.6); /* Semi-transparent blue */
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: trailAnimation 0.6s ease-out forwards;
+  opacity: 0;
+  z-index: 9998; /* Slightly below the custom cursor */
+}
+
+/* Animation for the trail to shrink and fade out */
+@keyframes trailAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center;     /* Center horizontally */
+  flex-grow: 1;            /* Allow this section to take up the remaining space */
+}
+
+/* The bottom section with scroll down arrow */
+.scroll-down-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto; /* This ensures it's pushed to the bottom of the page */
+  padding-bottom: 30px; /* Optional, gives a margin from the bottom */
+}
+
+.scroll-down-arrow {
+  font-size: 3rem;
+  animation: bounce 1s infinite; /* Apply bounce animation */
+}
+
+.scroll-down-container p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 600;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Heading animation */
+.pgsheading {
+  font-family: 'MagistralBlack', sans-serif;
+  font-weight: normal;
+  font-size: 56px;
+  margin: 20px 0;
+  color: #163B6D;
+  word-wrap: break-word;
+  opacity: 0; /* Initially hidden */
+}
+
+/* Paragraph animation */
+.pgstext {
+  font-family: 'PoppinsMedium', sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  margin: 20px 0;
+  color: #163B6D;
+  word-wrap: break-word;
+  opacity: 0; /* Initially hidden */
+}
+
+
+.buttons{
+  border-radius: 46px;
+}
+
+/* Navbar container */
+.navBar {
+  width: 100%;
+  max-width: 1440px;
+  height: 162px;
+  padding: 0 64px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  gap: 64px; /* Spacing between logo and buttons */
+}
+
+/* Navigation Buttons */
+.navButtons {
+  display: flex;
+  gap: 48px; /* Spacing between nav buttons */
+}
+
+.navButtons a {
+  text-decoration: none;
+  color: black;
+  font-weight: 900; /* Bolder text */
+  font-family: 'MagistralBold', sans-serif;
+  font-size: 18px; /* Font size for nav buttons */
+  transition: color 0.3s ease;
+  position: relative;
+  display: flex; /* Ensure alignment with dropdown arrow */
+  align-items: center; /* Vertically align text and arrow */
+}
+
+.navButtons a:hover {
+  color: #13508f;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Position below the button */
+  left: 0;
+  background-color: white; /* Dropdown background */
+  border: 1px solid #ccc; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15); /* Smooth shadow */
+  padding: 8px 0;
+  z-index: 1000; /* Ensure it appears above other elements */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth dropdown animation */
+  opacity: 0;
+  transform: translateY(-10px); /* Slide in effect */
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 16px; /* Spacious padding */
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f5f5f5; /* Light gray hover background */
+  color: #13508f; /* Blue text on hover */
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Reset slide effect */
+}
+
+/* Dropdown arrow alignment */
+.dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Small space between text and arrow */
+}
+
+/* Dropdown arrow only for "About Us" */
+.dropdown > a::after {
+  content: "▼"; /* Add dropdown arrow */
+  font-size: 14px; /* Smaller size for the arrow */
+  margin-left: 4px; /* Space between text and arrow */
+  transition: transform 0.3s ease;
+}
+
+/* Rotate the arrow on hover */
+.dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
+/* Remove inherited pseudo-element for dropdown menu items */
+.dropdown-menu a::after {
+  content: ""; /* Clear any inherited content */
+}
+
+
+
+/* Logo Styling */
+.logo-image {
+  width: 270px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.1);
+}
+
+
+.text {
+  font-family: 'Magistral', sans-serif;
+  font-weight: 700;
+  font-size: 24px; /* Adjust font size */
+  margin: 20px 0; /* Add spacing */
+}
+
+.text h1 {
+  font-size: 32px; /* Larger heading */
+  margin-bottom: 10px;
+}
+
+.text p {
+  font-size: 18px; /* Smaller paragraph size */
+  color: #555; /* Lighter text color */
+  line-height: 1.6; /* Increase readability */
+  margin: 0 auto; /* Center text */
+  max-width: 800px; /* Limit text width */
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+    background-image: linear-gradient(
+      to left,
+      #5778a3 0%,
+      #7ac8c9 17%,
+      #b0c9d3 28%,
+      #a6bcc8 55%
+    );
+  }
+  50% {
+    background-position: 100% 50%;
+    background-image: linear-gradient(
+      to left,
+      #5778a3 0%,
+      #a4d3d4 17%,
+      #c4d3d9 28%,
+      #9ab7c1 55%
+    );
+  }
+}
+
+
+
+
+
+
