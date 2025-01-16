@@ -409,6 +409,127 @@ a:hover ~ .custom-cursor {
   }
 }
 
+.logo {
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.paragraph {
+  will-change: transform, opacity;
+}
+
+/* Responsive Design for Tablets and Mobile Devices */
+@media (max-width: 1024px) {
+  /* Adjust body and container padding for smaller screens */
+  body, .App {
+    padding: 10px;
+  }
+
+   body,
+  input,
+  textarea,
+  button,
+  a {
+    cursor: default; /* Use the default cursor */
+  }
+
+  .custom-cursor {
+    display: none; /* Hide the custom cursor */
+  }
+
+  .cursor-trail {
+    display: none; /* Hide the cursor trail */
+  }
+
+  .homePagebutton {
+    width: 220px; /* Reduce button width */
+    height: 50px; /* Reduce button height */
+    font-size: 20px; /* Adjust font size */
+  }
+
+  .pgsheading {
+    font-size: 40px; /* Reduce heading size */
+  }
+
+  .pgstext {
+    font-size: 20px; /* Adjust paragraph size */
+  }
+
+  .navBar {
+    height: auto; /* Allow navbar height to adjust */
+    padding: 0 20px;
+  }
+
+  .navContent {
+    flex-direction: column; /* Stack logo and buttons */
+    gap: 16px; /* Reduce spacing between elements */
+  }
+
+  .navButtons {
+    gap: 24px; /* Reduce spacing between nav buttons */
+  }
+
+  .logo-image {
+    width: 200px; /* Scale down logo for smaller screens */
+  }
+
+  .dropdown-menu a {
+    font-size: 14px; /* Reduce font size for dropdown items */
+  }
+
+  .text h1 {
+    font-size: 28px; /* Adjust heading size */
+  }
+
+  .text p {
+    font-size: 16px; /* Adjust paragraph size */
+    max-width: 100%; /* Allow text to span full width */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Additional adjustments for smaller mobile devices */
+  .homePagebutton {
+    width: 180px; /* Further reduce button width */
+    height: 40px; /* Further reduce button height */
+    font-size: 18px; /* Adjust font size */
+  }
+
+  .pgsheading {
+    font-size: 32px; /* Reduce heading size for mobiles */
+  }
+
+  .pgstext {
+    font-size: 16px; /* Adjust paragraph size */
+  }
+
+  .navContent {
+    align-items: flex-start; /* Align content to the left */
+  }
+
+  .dropdown-menu {
+    width: 100%; /* Full width dropdown for smaller screens */
+    left: 0; /* Ensure it aligns properly */
+  }
+
+  .text h1 {
+    font-size: 24px; /* Smaller heading */
+  }
+
+  .text p {
+    font-size: 14px; /* Smaller paragraph text */
+  }
+
+  .scroll-down-container {
+    padding-bottom: 20px; /* Adjust bottom padding */
+  }
+
+  .scroll-down-arrow {
+    font-size: 2rem; /* Scale down arrow size */
+  }
+}
+
+
 
 
 

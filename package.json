@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
+    "gsap": "^3.12.5",
     "ionicons": "^7.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

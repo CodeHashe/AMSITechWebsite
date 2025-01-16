@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { arrowDownOutline } from 'ionicons/icons';
 
 function HomePageScreenOne({ heading, paragraph }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,10 +12,13 @@ function HomePageScreenOne({ heading, paragraph }) {
     backgroundImage: 'linear-gradient(to left, #163B6D 0%, #5E80AD 17%, #82A3CD 28%, #A6C5ED 55%)',
     backgroundSize: '200% 100%',
     width: '100vw',
-    minHeight: '100vh',  // Ensures the container takes at least the full height of the viewport
+    minHeight: '100vh', // Ensures the container takes at least the full height of the viewport
     display: 'flex',
     flexDirection: 'column',
     animation: 'moveBackground 10s linear infinite',
+    border: '10px solid #163B6D', // Adding a solid border
+    borderRadius: '15px', // Optional, for rounded corners
+    boxSizing: 'border-box', // Ensures padding and border are included in dimensions
   };
 
   const buttonContainerStyle = {
@@ -43,9 +45,9 @@ function HomePageScreenOne({ heading, paragraph }) {
 
       <div className="scroll-down-container">
         <div className="scroll-down-arrow">
-          <ion-icon name="chevron-down-outline"></ion-icon>
+          <ion-icon name="chevron-down-outline" style={{ color: '#163B6D' }}></ion-icon>
         </div>
-        <p className="text">Scroll Down</p>
+        <p className="text" style={{ color: '#163B6D' }}>Scroll Down</p>
       </div>
     </div>
   );
