@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom"; // Import Link from React Router
 import Logo from "../assets/newLogo.svg";
+import HomePage from "../HomePage/HomePage";
+import ServicesPage from "../ServicesPage/ServicesPage";
 
 function NavBarButtons() {
   return (
@@ -6,23 +9,24 @@ function NavBarButtons() {
       <div className="navContent">
         <img src={Logo} alt="Company Logo" className="logo-image" />
         <div className="navButtons">
-          <a href="#home" className="text">
+          {/* Replace href with React Router's Link to for routing */}
+          <Link to="/" className="text">
             Home Page
-          </a>
-          <a href="#services" className="text">
+          </Link>
+          <Link to="/services" className="text">
             Our Services
-          </a>
+          </Link>
           <div className="dropdown">
-            <a href="#about" className="text">
+            <Link to="/about" className="text">
               About Us
-            </a>
+            </Link>
             <div className="dropdown-menu">
-              <a href="#contact" className="dropdown-item">
+              <Link to="/contact" className="dropdown-item">
                 Contact Us
-              </a>
-              <a href="#projects" className="dropdown-item">
+              </Link>
+              <Link to="/projects" className="dropdown-item">
                 Our Projects
-              </a>
+              </Link>
             </div>
           </div>
         </div>

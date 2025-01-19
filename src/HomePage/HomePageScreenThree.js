@@ -15,59 +15,57 @@ function HomePageScreenThree() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // Create separate timelines for each animation
-    const headingTl = gsap.timeline({
+    // Create a timeline for animations
+    const mainTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top 80%",
         end: "center center",
-        toggleActions: "play none none reverse"
-      }
-    });
-
-    const descriptionTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: descriptionRef.current,
-        start: "top 80%",
-        end: "center center",
-        toggleActions: "play none none reverse"
-      }
-    });
-
-    const logosTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".logo-section",
-        start: "top 80%",
-        end: "center center",
-        toggleActions: "play none none reverse"
+        toggleActions: "play reverse play reverse" // Reverse animations on scroll up
       }
     });
 
     // Heading animation
-    headingTl.fromTo(headingRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1 }
-    ).to(headingRef.current, {
-      duration: 2,
-      text: "Transform Your Brand with Our Comprehensive Social Media Development Services"
+    mainTimeline
+      .fromTo(
+        headingRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1 }
+      )
+      .to(headingRef.current, {
+        duration: 2,
+        text: "Transform Your Brand with Our Comprehensive Social Media Development Services"
+      });
+
+    // Container shrink animation
+    mainTimeline.to(containerRef.current, {
+      duration: 1.5,
+      scale: 0.95,
+      borderRadius: "30px",
+      boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
+      ease: "power2.out",
     });
 
     // Description animation
-    descriptionTl.fromTo(descriptionRef.current,
+    mainTimeline.fromTo(
+      descriptionRef.current,
       { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1 }
+      { opacity: 1, y: 0, duration: 1 },
+      "-=0.5" // Overlap this animation with the previous one
     );
 
     // Logos animation
-    logosTl.fromTo('.logo',
+    mainTimeline.fromTo(
+      ".logo",
       { scale: 0, opacity: 0 },
-      { 
-        scale: 1, 
-        opacity: 1, 
-        duration: 0.8, 
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.8,
         stagger: 0.2,
         ease: "back.out(1.7)"
-      }
+      },
+      "-=0.5"
     );
 
     return () => {
@@ -81,7 +79,8 @@ function HomePageScreenThree() {
       minHeight: '100vh',
       padding: '4rem',
       border: '10px solid #163B6D',
-      borderRadius: '15px'
+      borderRadius: '15px',
+      transition: 'transform 0.5s ease, box-shadow 0.5s ease',
     },
     contentWrapper: {
       maxWidth: '1200px',
@@ -115,8 +114,8 @@ function HomePageScreenThree() {
   };
 
   return (
-    <div style={styles.mainContainer}>
-      <div style={styles.contentWrapper} ref={containerRef}>
+    <div style={styles.mainContainer} ref={containerRef}>
+      <div style={styles.contentWrapper}>
         <h1 ref={headingRef} style={styles.heading}></h1>
         <p ref={descriptionRef} style={styles.description}>
           Our social media development services encompass strategic planning, engaging content creation, and insightful analytics. We help you build a strong online presence that resonates with your audience and drives results.

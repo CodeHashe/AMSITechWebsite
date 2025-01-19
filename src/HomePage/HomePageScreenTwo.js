@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import AngularLogo from "../assets/AngularLogo.svg";
@@ -16,30 +16,36 @@ gsap.registerPlugin(TextPlugin);
 function HomePageScreenTwo() {
   const headingRef = useRef(null);
   const containerRef = useRef(null);
+  const [hasAnimated, setHasAnimated] = useState(false); // State to track if animation has run
 
   useEffect(() => {
-    const tl = gsap.timeline();
-    
-    tl.to(headingRef.current, {
-      duration: 2,
-      text: "The Technologies and Languages We Work With",
-      ease: "none"
-    })
-    .to(".tech-description", {
-      opacity: 1,
-      y: 0,
-      duration: 1
-    })
-    .to(".logo", {
-      opacity: 1,
-      scale: 1,
-      rotation: 0,
-      duration: 0.5,
-      stagger: 0.2
-    });
+    if (!hasAnimated) { // Run animations only if they haven't run yet
+      const tl = gsap.timeline();
+      
+      tl.to(headingRef.current, {
+        duration: 2,
+        text: "The Technologies and Languages We Work With",
+        ease: "none"
+      })
+      .to(".tech-description", {
+        opacity: 1,
+        y: 0,
+        duration: 1
+      })
+      .to(".logo", {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 0.5,
+        stagger: 0.2
+      });
 
-    return () => tl.kill();
-  }, []);
+      // Mark animations as complete
+      tl.eventCallback("onComplete", () => setHasAnimated(true));
+
+      return () => tl.kill(); // Cleanup
+    }
+  }, [hasAnimated]); // Dependency on `hasAnimated`
 
   const styles = {
     mainContainer: {
@@ -49,9 +55,8 @@ function HomePageScreenTwo() {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '2rem',
-      border: '10px solid #163B6D', // Adding the border
-      borderRadius: '15px', // Optional rounded corners for the border
-      boxSizing: 'border-box', // Ensures padding and border are included in dimensions
+      border: '10px solid #163B6D',
+      borderRadius: '15px',
     },
     contentWrapper: {
       maxWidth: '1200px',
@@ -65,19 +70,15 @@ function HomePageScreenTwo() {
     },
     heading: {
       fontFamily: 'MagistralBlack, sans-serif',
-      fontWeight: 'normal',
       fontSize: '56px',
       margin: '20px 0',
-      color: '#163B6D',
-      wordWrap: 'break-word'
+      color: '#163B6D'
     },
     description: {
       fontFamily: 'PoppinsMedium, sans-serif',
-      fontWeight: 'normal',
       fontSize: '24px',
       margin: '20px 0',
       color: '#163B6D',
-      wordWrap: 'break-word',
       opacity: 0,
       transform: 'translateY(20px)'
     },

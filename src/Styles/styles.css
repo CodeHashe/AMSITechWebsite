@@ -8,6 +8,12 @@ a {
   cursor: none;
 }
 
+a:-webkit-any-link {
+  text-decoration: none !important; /* Remove underline */
+}
+
+
+
 
 .App {
   font-family: sans-serif;
@@ -56,6 +62,47 @@ body, html {
   position: relative; /* Allow absolute positioning of the arrow at the bottom */
   justify-content: flex-start; /* Align items from the top */
 }
+
+/* Carousel container */
+/* Carousel container */
+.carousel-container {
+  width: 80%; /* Reduced width for the bar */
+  overflow: hidden; /* Hide overflow for seamless effect */
+  background-color: #f4f4f4; /* Cleaner background */
+  border: 5px solid #163b6d; /* Subtle border color */
+  border-radius: 15px; /* Slightly rounded edges */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0; /* Space around the logos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  margin: 20px auto; /* Center the bar horizontally */
+}
+
+/* Carousel track */
+.carousel {
+  display: flex;
+  gap: 50px; /* Adjust spacing between logos */
+  animation: scroll 25s linear infinite; /* Infinite scrolling animation */
+}
+
+/* Carousel logos */
+.carousel-logo {
+  width: 60px; /* Smaller logo size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Smooth infinite scrolling */
+@keyframes scroll {
+  0% {
+    transform: translateX(0); /* Start at the initial position */
+  }
+  100% {
+    transform: translateX(-50%); /* Move halfway (to the first duplicated set) */
+  }
+}
+
+
 
 /* Keyframes for fade-in effect */
 @keyframes fadeIn {
@@ -445,6 +492,7 @@ a:hover ~ .custom-cursor {
     width: 220px; /* Reduce button width */
     height: 50px; /* Reduce button height */
     font-size: 20px; /* Adjust font size */
+    text-decoration: none;
   }
 
   .pgsheading {
