@@ -1,9 +1,17 @@
 import React from "react";
 import TermsPageScreenOne from "./TermsPageScreenOne";
+import { Helmet } from "react-helmet";
+import newLogo from "../assets/newLogo.svg";
 
 function TermsPage() {
   return (
     <div style={{ fontFamily: "Poppins, sans-serif" }}>
+        <Helmet>
+
+            <title>Terms and Conditions - AMSI Tech Solutions</title>
+            <link rel="icon" type="image/svg+xml" href={newLogo} />
+
+        </Helmet>
       <TermsPageScreenOne 
         heading="Terms and Conditions"
         paragraph="Welcome to the terms and conditions for our services. These terms and conditions outline the rules and regulations for the use of our services. By utilizing our services, we assume you accept these terms and conditions. Do not continue to use our website or services if you do not agree to take all of the terms and conditions stated on this page."

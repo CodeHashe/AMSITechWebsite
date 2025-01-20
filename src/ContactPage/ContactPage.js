@@ -1,8 +1,19 @@
 import ContactPageScreenOne from "./ContactPageScreenOne";
+import { Helmet } from "react-helmet";
+import newLogo from "../assets/newLogo.png";
 
 function ContactPage() {
     return (
         <div>
+            <Helmet>
+
+                <title>Contact Us</title>
+                <link rel="icon" type="image/svg+xml" href={newLogo} />
+
+
+            </Helmet>
+
+
             <ContactPageScreenOne 
                 heading={"Contact Us"} 
                 paragraph={"We are here to help you. Feel free to contact us for any inquiries or feedback. We'd love to hear from you."} 

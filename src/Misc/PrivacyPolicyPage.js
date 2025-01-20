@@ -1,9 +1,17 @@
 import React from "react";
 import PrivacyPolicyPageScreenOne from "./PrivacyPolicyPageScreenOne";
+import { Helmet } from "react-helmet";
+import newLogo from "../assets/newLogo.svg";
 
 function PrivacyPolicyPage() {
   return (
     <div style={{ fontFamily: "Poppins, sans-serif" }}>
+        <Helmet>
+
+            <title>Privacy Policy - AMSI Tech Solutions</title>
+            <link rel="icon" type="image/svg+xml" href={newLogo} />
+
+        </Helmet>
       <PrivacyPolicyPageScreenOne 
         heading="Privacy Policy"
         paragraph="We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our website. By using our services, you consent to the practices described in this policy."

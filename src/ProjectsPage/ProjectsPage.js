@@ -3,6 +3,8 @@ import ProjectShowcase from "./ProjectShowcase";
 import TrioKartLogo from "../assets/TrioKartLogo.png";
 import StuSwiftLogo from "../assets/StuSwift.png";
 import ExcelLogo from "../assets/ExcelLogo.png";
+import { Helmet } from "react-helmet";
+import newLogo from "../assets/newLogo.svg";
 
 import React from "react";
 function ProjectsPage() {
@@ -10,6 +12,12 @@ function ProjectsPage() {
 
     return (
         <div>
+            <Helmet>
+
+                <title>Our Projects</title>
+                <link rel="icon" type="image/svg+xml" href={newLogo} />
+
+            </Helmet>
             <ProjectsPageScreenOne 
             heading="Our Projects" 
             paragraph="Discover our diverse range of projects, from residential to commercial and industrial construction. Explore our portfolio and see how we've transformed spaces." 
