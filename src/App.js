@@ -7,6 +7,7 @@ import ServicesPage from "./ServicesPage/ServicesPage"; // Example for another r
 import ProjectsPage from "./ProjectsPage/ProjectsPage";
 
 import "./Styles/styles.css";
+import ContactPage from "./ContactPage/ContactPage";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/contact" element={<ContactPage/>} />
         </Routes>
         <Footer />
       </div>
