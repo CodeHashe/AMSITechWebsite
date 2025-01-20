@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
 import "../Styles/styles.css";
 
 function HomePageScreenFour() {
@@ -9,6 +10,8 @@ function HomePageScreenFour() {
   const descriptionRef = useRef(null);
   const featureRefs = useRef([]);
   const buttonRef = useRef(null);
+
+  const navigate = useNavigate(); // Initialize useNavigate for navigation
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
@@ -32,27 +35,30 @@ function HomePageScreenFour() {
 
   const styles = {
     container: {
-      textAlign: "center",
-      padding: "80px",
-      background: "linear-gradient(to bottom right, #d9d9d9, #c9d6df)",
-      color: "#243b53",
-      fontFamily: "MagistralBold, sans-serif",
+      background: "linear-gradient(to right, #A6C5ED, #82A3CD, #5E80AD, #163B6D)",
+      padding: "6rem",
       borderRadius: "16px",
-      maxWidth: "1200px",
+      maxWidth: "1500px",
       margin: "0 auto",
+      textAlign: "center",
+      color: "#163B6D",
+      fontFamily: "Poppins, sans-serif",
     },
     title: {
+      fontFamily: "MagistralBlack, sans-serif",
       fontSize: "22px",
       color: "#516d96",
       fontWeight: "bold",
       textTransform: "uppercase",
     },
     mainHeading: {
+      fontFamily: "MagistralBlack, sans-serif",
       fontSize: "36px",
       margin: "20px 0",
       fontWeight: "bold",
     },
     description: {
+      fontFamily: "Poppins, sans-serif",
       fontSize: "20px",
       margin: "30px auto",
       maxWidth: "800px",
@@ -75,30 +81,37 @@ function HomePageScreenFour() {
       color: "#516d96",
     },
     featureTitle: {
+      fontFamily: "MagistralBlack, sans-serif",
       fontSize: "22px",
       marginBottom: "15px",
       fontWeight: "bold",
     },
     featureDescription: {
+      fontFamily: "Poppins, sans-serif",
       fontSize: "16px",
       color: "#5a6f89",
     },
     button: {
-        marginTop: "30px",
-        padding: "10px 20px",
-        backgroundColor: "transparent", // Transparent background
-        color: "#243b53", // Text color
-        border: "2px solid #243b53", // Border color and thickness
-        borderRadius: "25px", // Rounded corners
-        fontSize: "16px",
-        cursor: "pointer",
-        transition: "all 0.3s ease", // Smooth hover effect
-        fontWeight: "bold",
-      },
-      buttonHover: {
-        backgroundColor: "#243b53", // Background color on hover
-        color: "white", // Text color on hover
-      },
+      marginTop: "30px",
+      padding: "10px 20px",
+      backgroundColor: "transparent",
+      color: "#243b53",
+      border: "2px solid #243b53",
+      borderRadius: "25px",
+      fontSize: "16px",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+      fontWeight: "bold",
+      fontFamily: "PoppinsMedium, sans-serif", // Use PoppinsMedium for the button text
+    },
+    buttonHover: {
+      backgroundColor: "#243b53",
+      color: "white",
+    },
+  };
+
+  const handleButtonClick = () => {
+    navigate("/services"); // Navigate to the /services page
   };
 
   return (
@@ -116,7 +129,7 @@ function HomePageScreenFour() {
       </p>
 
       <div style={styles.features}>
-        {[
+        {[  
           {
             icon: "🔒",
             title: "Expertise You Can Trust for Digital Success",
@@ -152,6 +165,7 @@ function HomePageScreenFour() {
         style={styles.button}
         onMouseOver={(e) => (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)}
         onMouseOut={(e) => (e.target.style.backgroundColor = styles.button.backgroundColor)}
+        onClick={handleButtonClick} // Add onClick handler to navigate to /services
         ref={buttonRef}
       >
         See our services

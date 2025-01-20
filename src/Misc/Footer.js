@@ -61,9 +61,6 @@ const Footer = () => {
               lineHeight: "21px",
             }}
           >
-            <a href="/about" style={{ textDecoration: "none", color: "inherit" }}>
-              About Us
-            </a>
             <a
               href="/services"
               style={{ textDecoration: "none", color: "inherit" }}
@@ -81,9 +78,6 @@ const Footer = () => {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               Support
-            </a>
-            <a href="/faqs" style={{ textDecoration: "none", color: "inherit" }}>
-              FAQs
             </a>
           </div>
         </div>
@@ -173,13 +167,13 @@ const Footer = () => {
         >
           <span>© 2024 AMSI Tech. All rights reserved.</span>
           <a
-            href="/privacy-policy"
+            href="/privacy"
             style={{ textDecoration: "underline", color: "inherit" }}
           >
             Privacy Policy
           </a>
           <a
-            href="/terms-of-service"
+            href="/terms"
             style={{ textDecoration: "underline", color: "inherit" }}
           >
             Terms of Service
